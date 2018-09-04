@@ -2,9 +2,11 @@
 
 I'm Andrew, and I'm into computational social science.
 
-I want a robust understanding of how social systems _work_ and how they can be _improved_. I'm interested in augmenting my ability to do both of these things with machines that can do _computation_ better than I can.
+I want a robust understanding of how social systems _work_ and how they can be _improved_.  
 
-I think about how we can evaluate our own institutions and how we might be able to design better ones.
+I try to augment my ability to do both of these things with machines that can do the computation better than I can.
+
+I'm interested in how we can evaluate our own institutions---scientific, economic, and political---and how we might be able to design better ones.
 
 I broadly agree with the principles of [Effective Altruism](https://en.wikipedia.org/wiki/Effective_altruism).
 
