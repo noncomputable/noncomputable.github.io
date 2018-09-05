@@ -18,4 +18,4 @@ If you'd like to talk, feel free to reach out to me at:
 [_the first three letters of my first name_]computable on Gmail.
 
 [GitHub](https://github.com/noncomputable)  
-[Twitter](https://twitter.com/noncomputable)
+[Twitter](https://twitter.com/chocolateycrepe)
