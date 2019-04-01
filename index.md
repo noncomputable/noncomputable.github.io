@@ -1,6 +1,5 @@
 ---
 ---
-
 ### Hi there!
 
 I'm Andrew, and I'm into computational social science.
@@ -17,7 +16,7 @@ I use Python and JavaScript, and sometimes [NetLogo](https://ccl.northwestern.ed
 
 I like [Scott Walker](https://www.youtube.com/watch?v=DRPXfsCBvVU), [Marty Robbins](https://www.youtube.com/watch?v=6x6o_tBU8DU), and [Leonard Cohen](https://www.youtube.com/watch?v=yOnXe8ttmjY).
 
-If you want to talk, say hi at:  
+If you wanna talk, say hello at:  
 [_the first three letters of my first name_]computable on Gmail.
 
 [GitHub](https://github.com/noncomputable)  

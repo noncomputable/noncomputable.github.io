@@ -1,0 +1,26 @@
+---
+---
+
+@import "whiteglass";
+
+@font-face {
+	font-family: "Lora"; src: url("./Lora/Lora-Regular.ttf");
+}
+
+/** Basic styling */
+body { font: 400 16px/1.5 Lora, sans-serif; color: #555; background-color: #efeeea; -webkit-text-size-adjust: 100%; -webkit-font-feature-settings: "kern" 1; -moz-font-feature-settings: "kern" 1; -o-font-feature-settings: "kern" 1; font-feature-settings: "kern" 1; font-kerning: normal; }
+
+/** Page content */
+.page-content { padding: 15px 0; }
+
+/** Wrapper */
+.wrapper { max-width: -webkit-calc(750px - (30px * 2)); max-width: calc(750px - (30px * 2)); margin-right: auto; margin-left: auto; padding-right: 30px; padding-left: 30px; }
+@media screen and (max-width: 750px) { .wrapper { max-width: -webkit-calc(750px - (30px)); max-width: calc(800px - (30px)); padding-right: 15px; padding-left: 15px; } }
+
+a {
+	color: #fa4e4e;
+}
+
+a:visited {
+	color: #fa4e4e;
+}
