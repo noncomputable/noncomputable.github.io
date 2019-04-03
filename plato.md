@@ -81,7 +81,7 @@ If you don't have time for the definitions or details, but do have the data, I p
 
 If we rank people's consumption decisions by the quality of the products they pick, we can define the _information adversity_ of the interface as the difference between the ranks of the products they actually choose and the ranks of the best products available.
 
-We'll define a ranking function $$ r(p)$$ for any product $$ p$$ to be the number of products that $$ p$$ has a higher quality than. If $$ r(A) > r(B)$$, $$ A$$ is experientially preferred to more products than $$ B$$. Since we're dealing only with the kinds of products that have reasonably solid quality distinctions (pens, chargers, tire replacements) and without ties, each product will have a unique rank.
+We'll define a ranking function $$ r(p)$$ for any product $$ p$$ to be the number of products that $$ p$$ has a higher quality than. If $$ r(A) > r(B)$$, $$ A$$ is preferred in quality to more products than $$ B$$. Since we're dealing only with the kinds of products that have reasonably solid quality distinctions (pens, chargers, tire replacements) and without ties, each product will have a unique rank.
 
 If we want to make an accurate judgement about a person's behavior, we'll want to see their decisions across many different substitute sets $$ S$$. Where $$ r_S(p)$$ is the rank of a product $$ p$$ in $$ S$$, the minimum rank will be $$ 0$$ when $$ p$$ isn't preferred to any of the others, and the maximum rank will be $$ \vert S\vert - 1$$ when $$ p$$ is preferable to every product in $$ S$$ other than itself.
 
@@ -93,11 +93,11 @@ However, there won't just be one universal subjective ranking function $$ r^*_S$
 
 We want a measure of how far the products people choose are from the actual best products. We'll define an individual measure for each user and an index for the whole sample.
 
-We know the rank of the best product in $$ S$$, but what's the rank of the products a user _thinks_ are the best, i.e. their top subjectively ranked products? They can have multiple subjectively top ranked products, so how can we give _one_ rank to all of them that we can compare to the maximum rank? Since as far as we know the user might pick any one of their top products with equal probability, our expectation about whatever they end up with will be some probabilistic mix of the actual ranks of all their top products in $$ S$$.
+We know the rank of the best product in $$ S$$, but what's the rank of the products a user _thinks_ are the best? They can have multiple top subjectively ranked products, so how can we give _one_ rank to all of them that we can compare to the maximum possible rank? Since as far as we know the user might pick any one of their top products with equal probability, our expectation about whatever they end up with will be some probabilistic mix of the actual ranks of all their top products in $$ S$$.
 
 In particular, let $$ R^*_i(S)$$ be average of the actual ranks of the products in $$ S$$ that have the maximum subjective rank for person $$ i$$: $$ R^*_i(S) = \frac{\sum_{p \in M} r_S(p)}{\vert M\vert }$$, for $$ M = \underset{p}{\arg\max}\; r^*_{i,S}(p)$$. In other words, $$ R^*_i(S)$$ is the expected rank of their decision in $$ S$$. Since we suppose that subjects will only nominate their top products in $$ S$$, i.e. the ones with maximum subjective rank, in an experiment $$ R^*_i(S)$$ will be the average of the actual ranks of the products they nominated.
 
-The information adversity $$ I_i(S)$$ for one user $$ i$$ in one particular substitute set $$ S$$ might literally be how far the expected rank of their decision is from the rank of the best possible decision. That is, we could define it as the difference between the maximum product rank in $$ S$$, $$ R(S)$$, and the expected rank of $$ i$$'s decision in $$ S$$, $$ R^*_i(S)$$: $$ I_i(S) = R(S) - R^*_i(S)$$.
+The information adversity $$ I_i(S)$$ for one user $$ i$$ in one specific substitute set $$ S$$ might literally be how far the expected rank of their decision is from the rank of the best possible decision. That is, we could define it as the difference between the maximum product rank in $$ S$$, $$ R(S)$$, and the expected rank of $$ i$$'s decision in $$ S$$, $$ R^*_i(S)$$: $$ I_i(S) = R(S) - R^*_i(S)$$.
 
 When the maximum rank $$ R(S)$$ and the user's expected rank $$ R^*_i(S)$$ are close, the information adversity $$ I_i(S)$$ will be low and closer to $$ 0$$; when they're far apart, $$ I_i(S)$$ will be higher and closer to $$ R(S)$$. Since $$ R(S)$$ is an upper bound on what $$ R^*_i(S)$$ can be, $$ I_i(S)$$ will always be a number between $$ 0$$ and $$ \vert S\vert -1$$; $$ I_i(S)$$ will only be meaningful in relation to $$ \vert S\vert $$. But we want to make a judgement about people's information adversity across multiple sets of products $$ S$$ of varying sizes.
 
@@ -107,7 +107,7 @@ Since, again, $$ R(S)$$ is an upper bound on what $$ R^*_i(S)$$ can be, and both
 
 That's person $$ i$$'s information adversity for one specific substitute set. How do we get an aggregate measure for all the $$ S$$ where $$ i$$ made nominations? We can find the fraction the sum of all actual expected ranks $$ R^*_i(S)$$ is of the sum of all maximum possible ranks $$ R(S)$$ in each set $$ S$$: $$ I_i = 1 - \frac{\sum_{S} R^*_i(S)}{\sum_{S} R(S)}$$.
 
-To keep things clear, let $$ R$$ be the sum of the maximum ranks of all substitute sets $$ S$$. Then let $$ R^*_i$$ be the sum of the expected ranks for all $$ S$$: $$ R^*_i = \sum_{S} R^*_i(S)$$.
+To keep things clear, let $$ R$$ be the sum of the maximum ranks of all substitute sets $$ S$$. Then let $$ R^*_i$$ be the sum of the expected ranks for all $$ S$$ for $$ i$$: $$ R^*_i = \sum_{S} R^*_i(S)$$.
 
 Then the aggregate measure of information adversity can be the average of the individual measures of all $$ n$$ people:
 
