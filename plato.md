@@ -75,7 +75,7 @@ Like promised, we ought to give users a real product corresponding to a random o
 
 Giving them actual products also opens this study up to possible extensions. By using and experiencing what they thought would be their top products, they can update their beliefs. Through the interface, they might input new information about the products and see messages from other users, changing their decisions in subsequent rounds, experimentally informing us about its reputation mechanisms and their effect on information adversity.
 
-If you don't have time for the definitions or derivations, but do have the data, I put together a simple tool to calculate information adversity [here](https://github.com/noncomputable/Information-Adversity).
+If you don't have time for the definitions or details, but do have the data, I put together a simple tool to calculate information adversity [here](https://github.com/noncomputable/Information-Adversity).
 
 #### **Information Adversity**
 
