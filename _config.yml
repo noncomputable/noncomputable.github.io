@@ -2,5 +2,3 @@ name: noncomputable.github.io
 markdown: kramdown
 theme: jekyll-whiteglass
 title: "Andrew's Site"
-sass:
-        sass_dir: assets
