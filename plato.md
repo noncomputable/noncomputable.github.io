@@ -75,6 +75,8 @@ Like promised, we ought to give users a real product corresponding to a random o
 
 Giving them actual products also opens this study up to possible extensions. By using and experiencing what they thought would be their top products, they can update their beliefs. Through the interface, they might input new information about the products and see messages from other users, changing their decisions in subsequent rounds, experimentally informing us about its reputation mechanisms and their effect on information adversity.
 
+If you don't have time for the definitions or derivations, but do have the data, I put together a simple tool to calculate information adversity [here](https://github.com/noncomputable/Information-Adversity).
+
 #### **Information Adversity**
 
 If we rank people's consumption decisions by the quality of the products they pick, we can define the _information adversity_ of the interface as the difference between the ranks of the products they actually choose and the ranks of the best products available.
@@ -113,7 +115,7 @@ $$ I = 1 - \frac{1}{n}\sum_{i=1}^{n} \frac{R^*_i}{R} = \frac{\sum_{i=1}^{n} I_i}
 
 Information adversity is low when the ranks of the products people believe are the best are close to the ranks of the products that are actually the best. The further apart these values are, the higher the information adversity is.
 
-If they do make consumption decisions based on their beliefs, they'll tend to choose products with the highest subjective ranks. Since rankings are determined by utilities and so differences in rank correspond to differences in utility, the information adversity will be a measure of welfare loss. It tries to answer the question of how far their decisions are from the most favorable ones possible. Given lots of choice data for lots of people, it puts a number on it, so we can compare levels of information adversity across different interfaces. If you haven't got time for the definitions or derivations, but do have the data, I put together a simple tool to calculate information adversity [here](https://github.com/noncomputable/Information-Adversity).
+If they do make consumption decisions based on their beliefs, they'll tend to choose products with the highest subjective ranks. Since rankings are determined by utilities and so differences in rank correspond to differences in utility, the information adversity will be a measure of welfare loss. It tries to answer the question of how far their decisions are from the most favorable ones possible. Given lots of choice data for lots of people, it puts a number on it, so we can compare levels of information adversity across different interfaces.
 
 #### **Why**
 
