@@ -1,4 +1,5 @@
-﻿---
+---
+title: Plato's Puppeteer
 ---
 {:center: style="text-align: center"}
 # Plato’s Puppeteer
