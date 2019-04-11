@@ -5,7 +5,7 @@ title: Plato's Puppeteer
 # Plato’s Puppeteer
 {:center}
 {:center: style="text-align: center"}
-### Interface Design and User Welfare
+### Measuring How Design Affects Decisionmaking
 {:center}
 
 A few years ago, I trusted Facebook's technocratic sensibility. They had teams of researchers and engineers working diligently to make products they insisted in earnest were meant to improve the world.
@@ -126,7 +126,7 @@ As people rely more and more on these technologies to find and navigate informat
 
 Beyond the effects interface features can have on users directly, proliferating them may have further, second-order effects. Whatever function the feature is meant to satisfy, as more people become used to it as a means of accessing that function, they may begin to prefer it over less familiar alternatives. Other systems that offer similar functions will be pressured to use those features or otherwise bear the risks and costs of trying to convert their prospective users away from the features they're all too familiar with. As more systems adopt these features, more users will be expecting them, strengthening the effect even more, making it too costly for most providers to be willing to switch to better alternatives. Large firms may be the ones who can most easily bear the costs of (even experimentally) breaking out of these equilibria _and_ pulling enough people towards new, potentially better ones.
 
-In Plato's _Allegory of the Cave_, prisoners are chained down in a cave, seeing its wall and nothing else their entire lives. A fire glows behind them, and in front of the fire sits a barrier behind which puppeteers walk unseen. They raise puppets above the barrier, casting shadow plays onto the wall before the prisoners. Plato propounds that while the prisoners may know the world of the shadows, they have no idea of the _true_ reality that lies behind them.
+In Plato's _Allegory of the Cave_, prisoners are chained down in a cave, seeing its wall and nothing else their entire lives. A fire glows behind them, and in front of the fire sits a barrier behind which puppeteers walk unseen. They raise puppets above the barrier, casting shadow plays onto the wall the prisoners watch. Plato highlights the fact that while the prisoners may know the world of the shadows, they have no idea of the _true_ reality that lies behind them.
 
 In a reality where important systems contain too much information to communicate in whole or at once, we're all constrained to get only a limited slice presented to us, just as the prisoners of the cave can only see shadows of the reality behind them. But how that slice is chosen and how it's presented to us matters enormously, just as what the puppeteers decide to raise before the flame matters enormously to what the prisoners believe. The people and organizations who craft and proliferate interface designs, just like the puppeteers, will help to determine what most of us believe and, accordingly, what it means to act on our beliefs. This doesn't apply only to markets, but to any system, political, economic, biological, or otherwise, that's made legible through a deliberately crafted interface. Plato's Puppeteer is my first crack at attacking this problem.
 
