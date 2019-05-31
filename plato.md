@@ -116,7 +116,6 @@ In Plato's _Allegory of the Cave_, prisoners are chained down in a cave, seeing 
 
 In a reality where important systems contain too much information to communicate in whole or at once, we're all constrained to get only a limited slice presented to us, just as the prisoners of the cave can only see shadows of the reality behind them. But how that slice is chosen and how it's presented to us matters enormously, just as what the puppeteers decide to raise before the flame matters enormously to what the prisoners believe. The people and organizations who craft and proliferate interface designs, just like the puppeteers, will help to determine what most of us believe and, accordingly, what it means to act on our beliefs. This doesn't apply only to markets, but to any system, political, economic, biological, or otherwise, that's made legible through a deliberately crafted interface. Plato's Puppeteer is my first crack at attacking this problem.
 
-![illustration](illustration.png)
 <meta name="twitter:image:src" content="https://noncomputable.github.io/illustration.png">
 
 {% include js.html %}
