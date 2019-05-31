@@ -1,8 +1,8 @@
 ﻿---
-title: Plato's Puppeteer
+title: Plato's Puppeteer - Measuring How Design Affects Decisionmaking
 ---
 {:center: style="text-align: center"}
-# Plato’s Puppeteer
+# Plato’s Puppeteer: 
 {:center}
 {:center: style="text-align: center"}
 ### Measuring How Design Affects Decisionmaking
