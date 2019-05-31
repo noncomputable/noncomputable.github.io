@@ -10,14 +10,14 @@ title: Plato's Puppeteer - Measuring How Design Affects Decisionmaking
 ---
 {:center: style="text-align: center"}
 1\. [Introduction](#introduction)  
-2\. [Eliciting User Beliefs](#eliciting-user-beliefs)  
+2\. [Eliciting Users' Beliefs](#eliciting-user-beliefs)  
 3\. [Information Adversity](#information-adversity)  
 4\. [Why](#why)
 {:center}
 ---
 #### **Introduction**
 
-In 2016, after protests against its role in spreading disniformation, Facebook [announced](https://newsroom.fb.com/news/2016/12/news-feed-fyi-addressing-hoaxes-and-fake-news/) "disputed flags": links voted untrustworthy by fact checkers would be stamped with little red flags, effectively marking them "fake news". Then they [shut it down](https://techcrunch.com/2017/12/20/facebook-will-ditch-disputed-flags-on-fake-news-and-display-links-to-trustworthy-articles-instead/). They [reported](https://medium.com/facebook-design/designing-against-misinformation-e5846b3aa1e2) that the flags sometimes backfired and strengthened people's beliefs in the misinformation.
+In 2016, after protests against its role in spreading disinformation, Facebook [announced](https://newsroom.fb.com/news/2016/12/news-feed-fyi-addressing-hoaxes-and-fake-news/) "disputed flags": links voted untrustworthy by fact checkers would be stamped with little red flags, effectively marking them "fake news". Then they [shut it down](https://techcrunch.com/2017/12/20/facebook-will-ditch-disputed-flags-on-fake-news-and-display-links-to-trustworthy-articles-instead/). They [reported](https://medium.com/facebook-design/designing-against-misinformation-e5846b3aa1e2) that the flags sometimes backfired and strengthened people's beliefs in the misinformation.
 
 I remember being jarred. How or why didn't they figure this out before implementing it? Why not much sooner than nearly a year after the fact? Their final report pointed back to a [paper from 2012](https://journals.sagepub.com/doi/abs/10.1177/1529100612451018?journalCode=psia) on the psychology of misinformation for suggestions as to why it didn't work out.
 
