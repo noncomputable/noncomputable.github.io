@@ -10,7 +10,7 @@ title: Plato's Puppeteer - Measuring How Design Affects Decisionmaking
 ---
 {:center: style="text-align: center"}
 1\. [Introduction](#introduction)  
-2\. [Eliciting Users' Beliefs](#eliciting-user-beliefs)  
+2\. [Eliciting User Beliefs](#eliciting-user-beliefs)  
 3\. [Information Adversity](#information-adversity)  
 4\. [Why](#why)
 {:center}
@@ -47,7 +47,7 @@ We can run an experiment that goes like this: After injecting information about 
 
 The details of each step can vary a lot with the application. Which products are used, how long users are allowed to interact, the structure and design of the menus, all depend on the context; the experimental design will have to be tailored for the specific users and interfaces in question. But what's the basic scaffolding we need to design these experiments?
 
-First, we need products to introduce into the system. In particular, we need sets of products $latex S$ of the same category, or _substitute sets_, where we can be reasonably confident about whether any one has higher or lower quality than any other in its set. Beyond that, the products can be any goods or services. We can come up with and assign them artificial brand attributes and quality rankings. These artificial qualities will correspond to the [actual](https://www.sciencedirect.com/science/article/pii/B9780124160088000188) preferability of products in $latex S$. 
+First, we need products to introduce into the system. In particular, we need sets of products $$ S$$ of the same category, or _substitute sets_, where we can be reasonably confident about whether any one has higher or lower quality than any other in its set. Beyond that, the products can be any goods or services. We can come up with and assign them artificial brand attributes and quality rankings. These artificial qualities will correspond to the [actual](https://www.sciencedirect.com/science/article/pii/B9780124160088000188) preferability of products in $$ S$$. 
 
 The connection between interface features and user preferences might be confounded by their personal taste in brand attributes (e.g. the colors, graphics, and names associated with products), so we ought to randomly vary brand assignments between users.
 
