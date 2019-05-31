@@ -35,7 +35,7 @@ Beyond happiness and health is _epistemic wellbeing_. How does the system, or th
 
 I'm interested in how interacting with a system affects people's ability to make good, informed decisions. Most similarly, [Seuken et al.](https://www.ifi.uzh.ch/ce/publications/BehavioralFactorsInMarketUIDesign.pdf) studied the effects of interface features on decisionmaking where users are explicitly told the value and price of each item in a menu and have a limited amount of money to spend. 
 
-How far is an interface from letting them make the best informed decisions possible? In other words, what's the _information adversity_ of the interface? The higher the interface's information adversity, the worse their decisions will be. Can we accurately, reliably measure it? Can we tell whether one feature is more or less adverse than another? I've sketched some basic tools for approaching these questions.
+How far is an interface from letting them make the best informed decisions possible? In other words, what's the _information adversity_ of the interface? The higher the interface's information adversity, the worse their decisions will be. Can we accurately, reliably measure it? Can we tell whether one feature is more or less _information adverse_ than another? I've sketched some basic tools for approaching these questions.
 
 #### **Eliciting User Beliefs**
 
