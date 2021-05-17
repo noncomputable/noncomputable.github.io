@@ -38,7 +38,7 @@ Once we have _Z_, we can use it to make a sequence of decisions to construct a n
 
 Then each step will look like this:
 
-First we’ll run the _AtomMPN_ to get neighborhood-aware representations for all the atoms. Then we’ll pass _Z_ through _AtomMLP_ to get a new atom.
+First we’ll pass _Z_ through _AtomMLP_ to get a new atom.
 
 Then we’ll pass _Z_, the new atom, and all the atoms already in the graph through a _NeighborMLP_ which outputs a probability distribution over the atoms already in the graph, plus a “stop” signal. We sample one of these atoms to be the new atom’s neighbor. 
 
