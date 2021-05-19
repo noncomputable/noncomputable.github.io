@@ -3,7 +3,7 @@
 
 ### **Motivation**
 
-I’ve been thinking a lot about how to automatically synthesize graphs that satisfy lots of different objectives at the same time, like molecules and social systems. Many successful approaches involve using neural networks to embed graphs into a continuous latent space, then searching through it using anything from particle swarms to bayesian optimization. My most exciting result so far has been a way to augment these strategies using continuous approximations of evolutionary algorithms.
+I’ve been thinking a lot about how to automatically synthesize graphs like molecules and social systems. Many successful approaches involve using neural networks to embed graphs into a continuous space, then searching through it using anything from particle swarms to bayesian optimization. My most exciting result so far has been a way to augment these strategies using continuous approximations of evolutionary algorithms.
 
 But however good the search strategy is, the results will only be as good as the quality of the embeddings. If smoothly moving between two points in latent space doesn’t correspond to smoothly moving between the properties of two graphs, we’ll have a very hard time optimizing our objectives.
 
@@ -102,9 +102,9 @@ Also, what about our second idea for reducing the complexity? Will these chunk-l
 
 Remember that one way to identify a tree is this: if you cut an edge, the graph splits into two disconnected parts.
 
-Looking at the chunks in our molecules, we can see that _some_ chunks are connected to others in an interesting way: if you cut the bond connecting them, the molecule splits into two disconnected parts. This is called a _bridge_ bond. In fact, this kind of chunk is _very_ common. If we decompose our molecules into chunks with this property, we can represent them as trees of chunks. That means, for every new chunk we generate, we can guarantee that its only neighbor in the graph thus far will be its parent in the tree, successfully implementing our second idea to reduce the complexity of bonding!
+Looking at the chunks in our molecules, we can see that _some_ chunks are connected to others in an interesting way: if you cut the bond connecting them, the molecule splits into two disconnected parts. This is called a _bridge_ bond. If we decompose a molecule into chunks with this property, we can represent it as a tree of chunks. That means, for every new chunk the decoder has to add, we can guarantee that its only neighbor in the graph thus far will be its parent in the tree, successfully implementing our second idea to reduce the complexity of bonding!
 
-Further, we now have a precise way of decomposing any molecule into chunks: find a bridge bond, detach it from one end—so both of the newly separated components have a copy of the atom at which they were detached—and if one of the resulting components is free of bridge bonds, treat it a special chunk called a _motif_. Otherwise, repeat the same process and decompose the remaining non-motif chunks into motifs. In the end, we will have constructed a tree of motifs, whose root is the first motif we found. Each motif will have been split off of exactly one other motif, its parent in the tree, and may have one or more motifs split off from it, its children.
+Further, we now have a precise way of decomposing any molecule into chunks: find a bridge bond, detach it from one end, and if one of the newly disconnected components is free of bridge bonds, treat it a special chunk called a _motif_. Otherwise, repeat the same process and decompose the remaining non-motif chunks into motifs. In the end, we will have constructed a tree of motifs, whose root is the first motif we found. Each motif will have been split off of exactly one other motif, its parent in the tree, and may have one or more motifs split off from it, its children.
 
 With this, our graphs have fewer nodes overall, and each new node has a single guaranteed neighbor.
 
@@ -126,7 +126,7 @@ But there’s something special about the structure of these motif-level graphs:
 
 The solution is simple: we can just add _ancestry edges_ between each motif and its ancestors and descendants. But it also seems problematic to have a motif communicate with its great-great-grandparent in the same way it communicates with its parent. To inform message-passing about the relationship between 2 nodes, we can label each of these ancestry edges with the actual distance between the motifs. We’ll call this the _MotifMPN_.
 
-Now, after a few steps of message passing, we might pool all the ancestry-informed motif representations together to get an embedding for our entire motif-level graph. But… I feel there’s gonna be a big imbalance in the representations of these nodes: at one extreme, leaves will only ever exchange messages with motifs in their single line of ancestry; at the other extreme, the root will exchange messages with _every motif in every line of ancestry in the graph_. In a sense, information from all the motifs is being pooled into the root motif. Yet if I average or aggregate all the motifs together, they’ll all be forced to contribute equally.
+Now, after a few steps of message-passing, we might pool all the ancestry-aware motif representations together to get an embedding for our entire motif-level graph. But… I feel there’s gonna be a big imbalance in the representations of these nodes: at one extreme, leafs will only ever exchange messages with motifs in their single line of ancestry; at the other extreme, the root will exchange messages with _every motif in every line of ancestry in the graph_. In a sense, information from all the motifs is being pooled into the root motif. Yet if I average or aggregate all the motifs together, they’ll all be forced to contribute equally.
 
 Since information from everywhere in the graph is being propagated into the root motif anyway, we can try to learn an encoder and decoder such that the entire graph can be reconstructed from just the root. So, instead of pooling the nodes in the usual way, the final representation of the root motif will be our graph embedding _Z_.
 
@@ -137,13 +137,13 @@ At the first step, when the graph is empty, we can get our first motif by passin
 
 Then, each step will look like this:
 
-First, we’ll run the _MotifMPN_ to get neighborhood-aware representations for all the motifs. We’ll pass _Z_ and the motif at the top of _MotifStack_ through _MotifMLP_ to get a new motif to add as its child.
+First, we’ll run the _MotifMPN_ to get ancestry-aware representations for all the motifs. We’ll pass _Z_ and the motif at the top of _MotifStack_ through _MotifMLP_ to get a new motif to add as its child.
 
 We’ll attach the new motif to the parent by taking a pair of atoms of the same type from each motif and merging the motifs together at those atoms. To do that, we can pass _Z_, the new motif, and the parent motif to an _AttachmentMLP_ that outputs a probability distribution over pairs of atoms from the parent and child with the same type and sample a pair.
 
 However, since the new motif hasn’t yet been incorporated into the graph, all atoms of the same type will have the _same exact_ embeddings, i.e. each carbon will be indistinguishable from each other carbon. Thus _AttachmentMLP_ will be unable to distinguish between attachments at different atoms of the same type. How can we fix this?
 
-We can associate each atom with an embedding of its position in the motif and pass it through a _PositionEncoderMLP_ to get a position-informed embedding of each atom. Then by passing these position-informed embeddings through _AttachmentMLP_, the decoder can learn to distinguish between attachments of the same type successfully.
+We can associate each atom with an embedding of its position in the motif and pass it through a _PositionEncoderMLP_ to get a position-aware embedding of each atom. Then by passing these position-aware embeddings through _AttachmentMLP_, the decoder can learn to distinguish between attachments of the same type successfully.
 
 After making this attachment, if the parent motif doesn’t have any atoms left to attach, we pop it off _MotifStack_. Finally, we push the new motif onto the stack and start adding its descendants in the next step.
 
