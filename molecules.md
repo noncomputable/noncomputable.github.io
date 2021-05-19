@@ -128,18 +128,18 @@ The solution is simple: we can just add _ancestry edges_ between each motif and 
 
 Now, after a few steps of message passing, we might pool all the ancestry-informed motif representations together to get an embedding for our entire motif-level graph. But… I feel there’s gonna be a big imbalance in the representations of these nodes: at one extreme, leaves will only ever exchange messages with motifs in their single line of ancestry; at the other extreme, the root will exchange messages with _every motif in every line of ancestry in the graph_. In a sense, information from all the motifs is being pooled into the root motif. Yet if I average or aggregate all the motifs together, they’ll all be forced to contribute equally.
 
-Since information from everywhere in the graph is being propagated into the root motif anyway, we can try to learn an encoder and decoder such that the entire graph can be reconstructed from just the root. So, instead of pooling the nodes in the usual way, the final representation of the root motif will be our graph embedding _E_.
+Since information from everywhere in the graph is being propagated into the root motif anyway, we can try to learn an encoder and decoder such that the entire graph can be reconstructed from just the root. So, instead of pooling the nodes in the usual way, the final representation of the root motif will be our graph embedding _Z_.
 
 
 #### **Decoder**
 
-At the first step, when the graph is empty, I’ll pass _Z_ through a _MotifMLP_ that outputs a probability distribution over possible motif types. I’ll sample a motif type and add the first motif to the new graph. I’ll keep track of the motifs that still have descendents that need to be added in a stack, _MotifStack_, and push the first motif onto it.
+At the first step, when the graph is empty, we can get our first motif by passing _Z_ through a _MotifMLP_ that outputs a probability distribution over motif types. We’ll sample one and add the first motif to the new graph. We’ll keep track of the motifs that still have descendents that need to be added in a stack, _MotifStack_, and push the first motif onto it.
 
 Then, each step will look like this:
 
-First, I’ll run the _MotifMPN_ to get neighborhood-aware representations for all the motifs. I’ll pass _Z_ and the motif at the top of _MotifStack_ through _MotifMLP_ to get a new motif to add as its child.
+First, we’ll run the _MotifMPN_ to get neighborhood-aware representations for all the motifs. We’ll pass _Z_ and the motif at the top of _MotifStack_ through _MotifMLP_ to get a new motif to add as its child.
 
-I’ll attach the new motif to the parent by taking a pair of atoms of the same type from each motif and merging the motifs together at those atoms. To do that, I’ll pass _Z_, the new motif, and the parent motif to an _AttachmentMLP_ that outputs a probability distribution over pairs of atoms from the parent and child with the same type and sample a pair.
+We’ll attach the new motif to the parent by taking a pair of atoms of the same type from each motif and merging the motifs together at those atoms. To do that, we can pass _Z_, the new motif, and the parent motif to an _AttachmentMLP_ that outputs a probability distribution over pairs of atoms from the parent and child with the same type and sample a pair.
 
 However, since the new motif hasn’t yet been incorporated into the graph, all atoms of the same type will have the _same exact_ embeddings, i.e. each carbon will be indistinguishable from each other carbon. Thus _AttachmentMLP_ will be unable to distinguish between attachments at different atoms of the same type. How can we fix this?
 
@@ -152,7 +152,7 @@ After making this attachment, if the parent motif doesn’t have any atoms left 
 
 Our model has to learn useful representations for the motifs just from their connections to each other. But we know the structure of these motif-level graphs is completely determined by strict chemical laws, by the atoms and bonds underlying them. So I think it may make it easier to learn useful representations if we inform each motif node with the graph of atoms that defines it.
 
-To do this for a molecule, first we’ll pass the atom-level graph through our MPN. Then we’ll get an atom-level representation of each motif by pooling the atoms of each motif together. Then, we’ll pass the motif’s embedding along with its atom-level representation through an MLP to get an _atom-informed_ representation of the motif. Finally, we’ll pass this atom-informed motif-level graph through our encoder to get an atom-informed embedding of the entire molecule.
+To do this for a molecule, first we’ll pass the atom-level graph through our MPN. Then we’ll get an atom-level representation of each motif by pooling the atoms inside each motif together. Then, we’ll pass the motif’s embedding along with its atom-level representation through an MLP to get an _atom-informed_ representation of the motif. Finally, we’ll pass this atom-informed tree of motifs through our encoder to get an atom-informed embedding of the entire molecule.
 
 Feeding subgraphs at the atom-level into nodes at the motif-level makes this approach _hierarchical_.
 
