@@ -141,9 +141,7 @@ First, we’ll run the _MotifMPN_ to get ancestry-aware representations for all 
 
 We’ll attach the new motif to the parent by taking a pair of atoms of the same type from each motif and merging the motifs together at those atoms. To do that, we can pass _Z_, the new motif, and the parent motif to an _AttachmentMLP_ that outputs a probability distribution over pairs of atoms from the parent and child with the same type and sample a pair.
 
-However, since the new motif hasn’t yet been incorporated into the graph, all atoms of the same type will have the _same exact_ embeddings, i.e. each carbon will be indistinguishable from each other carbon. Thus _AttachmentMLP_ will be unable to distinguish between attachments at different atoms of the same type. How can we fix this?
-
-We can associate each atom with an embedding of its position in the motif and pass it through a _PositionEncoderMLP_ to get a position-aware embedding of each atom. Then by passing these position-aware embeddings through _AttachmentMLP_, the decoder can learn to distinguish between attachments of the same type successfully.
+However, since the new motif hasn’t yet been incorporated into the graph, all atoms of the same type will have the _same exact_ embeddings, i.e. each carbon will be indistinguishable from each other carbon. Thus _AttachmentMLP_ will be unable to distinguish between attachments at different atoms of the same type. But we know atoms of the same type can play very different roles. So how can we transform the atom embeddings to capture these differing roles? By running them through our AtomMPN, which does just that! By doing this before attaching a motif, the decoder will be able to distinguish attachments of the same type by their structural roles.
 
 After making this attachment, if the parent motif doesn’t have any atoms left to attach, we pop it off _MotifStack_. Finally, we push the new motif onto the stack and start adding its descendants in the next step.
 
