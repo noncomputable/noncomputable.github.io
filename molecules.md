@@ -24,7 +24,7 @@ Well, we can think of molecules as graphs of atoms and bonds. We can try to take
 
 #### **Encoder**
 
-If we have a molecular graph, how would we actually embed information about its structure and content into a single, low-dimensional vector?
+If we have a molecular graph, how would we actually encode information about its structure and content into a single, low-dimensional vector?
 
 The first idea that comes to mind is to use a simple message-passing network. Each atom messages an embedding of its type (encoding its charge, atomic number, etc.) to its neighbors. Then each atom pools these messages along with its own embedding to get a new, neighborhood-aware representation. If we repeat this process for a few steps, our nodes will encode information about the structure and content of the graph around them. Let’s call this message-passing network _AtomMPN_.
 
@@ -50,7 +50,7 @@ We’ll keep trying to bond the new atom to existing atoms until _NeighborMLP_ g
 
 #### **Training**
 
-We can traverse each molecule in our training set and use each step of the traversal (“go from node type A to node type B along edge type C”) to generate a sequence of target decisions. Then, every time the decoder outputs a distribution of atom types, edge types, or neighbors, we can record the loss as the negative log likelihood of the target decision. Summing all these losses together, we can run the usual training routine and learn a model that’s good at encoding and decoding molecules.
+We can traverse each molecule in our training set and use each step of the traversal (“go from atom type A to atom type B along bond type C”) to generate a sequence of target decisions. Then, every time the decoder outputs a distribution of atom types, bond types, or neighbors, we can record the loss as the negative log likelihood of the target decision. Summing all these losses together, we can run the usual training routine and learn a model that’s good at encoding and decoding molecules.
 
 After fiddling with the hyperparameters and trying different variations on the MPN, it works quite well!
 
@@ -59,11 +59,11 @@ After fiddling with the hyperparameters and trying different variations on the M
 
 But… performance drops severely as molecules grow in size. No variation of GCNs and GATs and MLP layers seems to make it much easier.
 
-I guess it’s hard to encode the structure of dozens of atoms bonded together in different ways into a reasonably sized vector space. If we think about it, it makes sense: while the number of atom types and edge types stay constant, the number of possible ways to bond the atoms of a molecule—or the distinct decision sequences that generate those bonds—is a superfactorial function of the number of atoms:
+I guess it’s hard to encode the structure of many of atoms bonded together in different ways into a reasonably sized vector space. If we think about it, it makes sense: while the number of atom types and bond types stays constant, the number of possible ways to bond the atoms of a molecule—or the distinct decision sequences that generate those bonds—is a superfactorial function of the number of atoms:
 
 Suppose that instead of being able to bond to any number of atoms in the graph, we only let a new atom bond to _one_ other atom at that step. A severe restriction. Then the total number of possible bonding arrangements would be 1 at step 1 × 2 at step 2 × … × 49 at step 49 × 50 at step 50. A 50 atom graph would have ~ 3 × 10^64 or “30 vigintillion” possible bonding arrangements.
 
-Remember that the new atoms can actually bond to more than one atom per step, multiply that by the number of atom types and edge types, and it seems _very_ hard to pack all that information into a little vector and a few tractable decoder functions. And that intuition looks right: our model finds it impractically hard to encode bigger molecules into a low-dimensional embedding and decode those embeddings back into the original molecules.
+Remember that the new atoms can actually bond to more than one atom per step, multiply that by the number of atom types and edge types, and it seems _very_ hard to pack all that information into a little vector space and a few tractable decoder functions. And that intuition looks right: our model finds it impractically hard to encode bigger molecules into a low-dimensional embedding and decode those embeddings back into the original molecules.
 
 Not to mention that we want the decoder to be able to interpolate in the space between the molecules in our dataset, so that we can explore and generate completely new ones! A working VAE seems far away…
 
@@ -76,7 +76,7 @@ If we could reduce the number of nodes in the graphs, there would be fewer arran
 
 We could also decrease the number of arrangements by decreasing the number of possible neighbors for each new atom. But even if we only let each new atom choose exactly _one_ existing atom to bond to, the number of possibilities still grows factorially. And with that restriction, we can’t even construct cycles, and molecules tend to have lots of cycles! So how could it even be possible to decrease the number of possible neighbors below that?
 
-Maybe if new atoms didn’t have to select a neighbor in the first place. That could happen, for example, if its sole neighbor in the graph thus far could always be guaranteed to be the last atom we generated before it. But that would generate a tree of atoms extending from the initial atom, and again, we can’t even construct cycles. What to do?
+Maybe if new atoms didn’t have to select a neighbor in the first place. That could happen, for example, if its sole neighbor in the graph thus far could always be guaranteed to be the last atom we generated before it. But that would generate a tree of atoms extending from the first one, and again, it can't even construct cycles. What to do?
 
 
 ### **A Dollop of Domain Knowledge**
