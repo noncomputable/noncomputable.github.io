@@ -168,7 +168,7 @@ I imagine a molecule where each motif has 5 carbon atoms. Each step will have to
 
 We gaze at our dataset again and notice that the attachments aren’t totally random. There’s a pattern to them. For example, a motif may attach at two carbons on opposite sides a quarter of the time, another quarter of the time it may attach at only one nitrogen, and it may attach at all three of those atoms the rest of the time. We’ll call each of these patterns _attachment configurations_. If we associate each motif in the molecule with an attachment configuration, we don’t have to check every pair of atoms between two motifs, just the ones in their selected attachment configurations.
 
-So, instead of predicting a pair of atoms to attach immediately after predicting a new motif, we can first predict the new motif’s attachment configuration. So instead of looking at all 5 × 5 = 25 pairs of atoms from each motif, we can just look at the 2 × 3 = 6 pairs of atoms from each motif’s attachment configuration. To this end, we’ll add a new _AttachmentConfMLP_ to our decoder that accepts _E_, the parent motif, and the new motif as input, and outputs a distribution over the new motif’s possible attachment configurations. Then, we sample an attachment configuration and predict a pair of attachment atoms, constrained by the attachment configurations of the new motif and the parent motif.
+So, instead of predicting a pair of atoms to attach immediately after predicting a new motif, we can first predict the new motif’s attachment configuration. So instead of looking at all 5 × 5 = 25 pairs of atoms from each motif, we can just look at the 2 × 3 = 6 pairs of atoms from each motif’s attachment configuration. To this end, we’ll add a new _AttachmentConfMLP_ to our decoder that accepts _Z_, the parent motif, and the new motif as input, and outputs a distribution over the new motif’s possible attachment configurations. Then, we sample an attachment configuration and predict a pair of attachment atoms, constrained by the attachment configurations of the new motif and the parent motif.
 
 With this, we’ve cut down the complexity of our task even more, and our model should be equipped to handle molecules of practically any size!
 
@@ -177,13 +177,13 @@ With this, we’ve cut down the complexity of our task even more, and our model 
 
 So far, the motif representations are defined by the atoms+bonds inside the motifs and by the connections between the motifs. But when motifs send messages to each other, they actually have no information about _where_ they are attached, only the bare fact _that_ they have some attachment somewhere. Could it be useful to inform our motifs with information about the specific way in which they’re attached?
 
-We can create another graph of the motifs’ attachment configurations connected in the same way as their motifs and pass it through our MPN to get embeddings for each attachment config. Then, just like we fed embeddings of the atoms-and-bonds into their motifs, we can feed the attachment configs into their respective motifs to get attachment config-informed motif representations.
+We can create another graph of the motifs’ attachment configurations connected in the same way as the motifs and pass it through our MPN to get embeddings for each attachment config. Then, just like we fed embeddings of the atoms-and-bonds into their motifs, we can feed the attachment configs into their respective motifs to get attachment config-informed motif representations.
 
-But now we’re feeding both the atom-level graphs and the attachment config-level graphs into the motifs simultaneously. Supposedly, we’re concatenating them. But since each motif node is associated with its lone attachment config node, the attachment config level is “coarser” than the atom level. So it would make sense to put the atom-level graph lower in the hierarchy than the attachment configs, rather than at the same level.
+But now we’re feeding both the atom-level graphs and the attachment config-level graphs into the motifs simultaneously. Supposedly, we’re concatenating them. But since each motif node is associated with its lone attachment config node, the attachment config level is “coarser” than the atom level. So it would make sense to put the atom-level graphs lower in the hierarchy than the attachment configs, rather than at the same level.
 
 To do that for each motif, we can get an atom-level embedding, feed that atom-level embedding to its attachment config to get an atom-informed embedding of the motif’s attachment config, and feed that into the motif-level to get an embedding of the motif informed by all lower levels.
 
-Adding this attachment configuration level to the hierarchy between the atoms and the motifs noticeably improves the performance of our autoencoder.
+Adding this attachment configuration level to the hierarchy between the atoms and the motifs substantially improves the performance of our autoencoder.
 
 
 ### **Wrapping Up**
