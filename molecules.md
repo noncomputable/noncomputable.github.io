@@ -13,7 +13,6 @@ Whenever I study something, I wonder “how could I have come up with this from 
 
 Let's explore how we could have come up with a variation on the [HierGraphVAE](https://arxiv.org/pdf/2002.03230.pdf), invented (or discovered?) by Wengong Jin, Tommi Jakkola, and Regina Barzilay.
 
-
 ### **The Naive Approach**
 
 
@@ -25,11 +24,11 @@ Well, we can think of molecules as graphs of atoms and bonds. We can try to take
 
 #### **Encoder**
 
-If we have a molecular graph, how would we actually get a single embedding of the entire molecule?
+If we have a molecular graph, how would we actually embed information about its structure and content into a single, low-dimensional vector?
 
 The first idea that comes to mind is to use a simple message-passing network. Each atom messages an embedding of its type (encoding its charge, atomic number, etc.) to its neighbors. Then each atom pools these messages along with its own embedding to get a new, neighborhood-aware representation. If we repeat this process for a few steps, our nodes will encode information about the structure and content of the graph around them. Let’s call this message-passing network _AtomMPN_.
 
-Once message-passing is finished, we can pool all the nodes to get an embedding for the entire molecule, _Z_.
+Once message-passing is finished, we can pool all the nodes to get a meaningful embedding for the entire molecule, _Z_.
 
 
 #### **Decoder**
