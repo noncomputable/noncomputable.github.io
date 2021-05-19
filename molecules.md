@@ -20,7 +20,7 @@ Let's explore how we could have come up with a variation on the [HierGraphVAE](h
 We want to build a molecular autoencoder. How can we do that?
 
 
-Well, we can think of molecules as graphs of atoms and bonds. We can try to take one of these graphs and encode it into a continuous embedding. Then we can try to take that embedding and decode it back into a molecular graph, say by turning the embedding into a sequence of instructions like “add a carbon → add a new carbon → double bond it to the first carbon → add a new oxygen → double bond it to the second carbon → .... → stop”.
+Well, we can think of molecules as graphs of atoms and bonds. We can try to take one of these graphs and encode it into a continuous embedding. Then we can take that embedding and try to decode it back into a molecular graph, say by turning the embedding into a sequence of instructions like “add a carbon → add a new carbon → double bond it to the first carbon → add a new oxygen → double bond it to the second carbon → .... → stop”.
 
 
 #### **Encoder**
