@@ -37,7 +37,7 @@ However, a [method called GEGL](https://arxiv.org/pdf/2007.04897.pdf) combining 
 
 Using the generalization and stochasticity of a generative neural network to augment a genetic algorithm clearly works very well. But randomly sampling strings from a pleasantly biased RNN seems like a very restrictive search strategy. What if instead of using a genetic algorithm to steer direct generation, we used it to steer latent space optimization?
 
-The results of genetic algorithms are highly biased by the genetic slicing-and-dicing operations that are used to produce new molecules. Latent-space optimization, which involves moving points around in a complicated 20-dimensional space, is also biased by the search operators we use, like the velocity updates used by particle swarms. Both of these methods will take very different, biased search paths through chemical space. Both methods work quite well in different settings and I think it’s unlikely that one search path will be strictly superior to the other, however much they differ.
+The results of genetic algorithms are highly biased by the genetic slicing-and-dicing operations that are used to produce new molecules. Latent space optimization, which involves moving points around in a complicated 20-dimensional space, is also biased by the search operators we use, like the velocity updates used by particle swarms. Both of these methods will take very different, biased search paths through chemical space. Both methods work quite well in different settings and I think it’s unlikely that one search path will be strictly superior to the other, however much they differ.
 
 So maybe a method that intertwines those paths and benefits from both of their strengths and biases can do better than either one alone.
 
