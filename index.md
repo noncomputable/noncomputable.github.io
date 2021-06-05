@@ -10,6 +10,8 @@ I try to augment my ability to do both of these things with machines that can do
 
 I'm interested in how we can evaluate our own institutions---scientific, economic, and political---and how we might be able to design better ones.
 
+I'm best known for creating [AgentMaps](https://github.com/noncomputable/AgentMaps), a popular framework for agent-based simulations.
+
 I broadly agree with the principles of [Effective Altruism](https://en.wikipedia.org/wiki/Effective_altruism).
 
 I use Python and JavaScript, and sometimes [NetLogo](https://ccl.northwestern.edu/netlogo/).
