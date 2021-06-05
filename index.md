@@ -14,8 +14,6 @@ I'm best known for creating [AgentMaps](https://github.com/noncomputable/AgentMa
 
 I broadly agree with the principles of [Effective Altruism](https://en.wikipedia.org/wiki/Effective_altruism).
 
-I use Python and JavaScript, and sometimes [NetLogo](https://ccl.northwestern.edu/netlogo/).
-
 I like [Scott Walker](https://www.youtube.com/watch?v=DRPXfsCBvVU), [Marty Robbins](https://www.youtube.com/watch?v=6x6o_tBU8DU), and [Leonard Cohen](https://www.youtube.com/watch?v=yOnXe8ttmjY).
 
 If you wanna talk, say hello at:  
