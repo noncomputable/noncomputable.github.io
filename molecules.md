@@ -3,9 +3,9 @@
 
 ### **Motivation**
 
-I’ve been thinking a lot about how to automatically synthesize graphs like molecules and social systems. Many successful approaches involve using neural networks to embed graphs into a continuous space, then searching through it using anything from particle swarms to bayesian optimization. My most exciting result so far has been a way to augment these strategies using continuous approximations of evolutionary algorithms.
+I’ve been thinking a lot about how to automatically synthesize graphs like molecules and social systems. Many successful approaches use neural networks to embed graphs into a continuous space, then search through it using anything from particle swarms to bayesian optimization. If you want to learn more about latent spaces and how to search them for high quality molecules, I wrote about that in more detail [here](noncomputable.github.io/evolution), where I developed a way to augment traditional search strategies with evolutionary algorithms.
 
-But however good the search strategy is, the results will only be as good as the quality of the embeddings. If smoothly moving between two points in latent space doesn’t correspond to smoothly moving between the properties of two graphs, we’ll have a very hard time optimizing our objectives.
+But however good our search strategy is, the results we get will only be as good as the quality of the embeddings. If smoothly moving between two points in latent space doesn’t correspond to smoothly moving between the properties of two graphs, we’ll have a very hard time optimizing our objectives.
 
 There are lots of ways to embed molecules into a latent space, like [this](https://arxiv.org/pdf/2004.01215.pdf), [this](https://arxiv.org/pdf/1703.01925.pdf), [this](https://pubs.rsc.org/no/content/articlehtml/2019/sc/c8sc04175j), [this](http://proceedings.mlr.press/v80/jin18a/jin18a.pdf), [this](https://jcheminf.biomedcentral.com/articles/10.1186/s13321-019-0397-9), [this](https://arxiv.org/pdf/1805.11973.pdf), [this](https://arxiv.org/pdf/2002.03230.pdf), and a bunch more. I wanted a VAE that could translate between arbitrary molecules and their embeddings, but the most successful methods involved lots of moving parts that were difficult to motivate and expand upon.
 
@@ -125,6 +125,19 @@ But there’s something special about the structure of these motif-level graphs:
 
 The solution is simple: we can just add _ancestry edges_ between each motif and its ancestors and descendants. But it also seems problematic to have a motif communicate with its great-great-grandparent in the same way it communicates with its parent. To inform message-passing about the relationship between 2 nodes, we can label each of these ancestry edges with the actual distance between the motifs. We’ll call this the _MotifMPN_.
 
+For example, take this molecule:
+
+![molecule](images/motif_mol.png "hola")
+
+It can be decomposed into a tree of motifs like this:
+
+![motif tree](images/attachment_edges.png)
+
+But instead of passing messages along the green edges where the motifs are attached, we will pass them along _ancestry edges_ pictured and labeled in gold:
+
+![ancestry informed motif tree](images/ancestry_edges.png)
+
+
 Now, after a few steps of message-passing, we might pool all the ancestry-aware motif representations together to get an embedding for our entire motif-level graph. But… I feel there’s gonna be a big imbalance in the representations of these nodes: at one extreme, leafs will only ever exchange messages with motifs in their single line of ancestry; at the other extreme, the root will exchange messages with _every motif in every line of ancestry in the graph_. In a sense, information from all the motifs is being pooled into the root motif. Yet if I average or aggregate all the motifs together, they’ll all be forced to contribute equally.
 
 Since information from everywhere in the graph is being propagated into the root motif anyway, we can try to learn an encoder and decoder such that the entire graph can be reconstructed from just the root. So, instead of pooling the nodes in the usual way, the final representation of the root motif will be our graph embedding _Z_.
@@ -187,5 +200,35 @@ Adding this attachment configuration level to the hierarchy between the atoms an
 
 ### **Wrapping Up**
 
-After lots of thought, exploration, and experimentation, we ended up somewhere far from the naive approach we began with. This model turns out to outperform every other molecular autoencoder I’ve seen, and there are good theoretical reasons to expect it to outperform for other tasks on larger graphs. And now, we can fly our bayesian rocket ship through latent space and explore its habitable (er, high QED) depths.
+After lots of thought, exploration, and experimentation, we ended up somewhere far from the naive approach we began with. The paper reports HierGraphVAE's reconstruction accuracy side-by-side with other methods:
 
+<table>
+<thead>
+  <tr>
+    <th>Method</th>
+    <th>Reconstruction Accuracy</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>SMILES-VAE</td>
+    <td>21.5%</td>
+  </tr>
+  <tr>
+    <td>JT-VAE</td>
+    <td>42.4%</td>
+  </tr>
+  <tr>
+    <td>GC-VAE</td>
+    <td>58.5%</td>
+  </tr>
+  <tr>
+    <td>HierGraphVAE</td>
+    <td>79.9%</td>
+  </tr>
+</tbody>
+</table>
+
+This model turns out to outperform every other molecular autoencoder I’ve seen til now, and there are good theoretical reasons to expect it to outperform for other tasks on larger graphs. 
+
+And now, we can fly our bayesian rocket ship through latent space and explore its habitable (er, high QED) depths.
