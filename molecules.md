@@ -3,7 +3,7 @@
 
 ### **Motivation**
 
-I’ve been thinking a lot about how to automatically synthesize graphs like molecules and social systems. Many successful approaches use neural networks to embed graphs into a continuous space, then search through it using anything from particle swarms to bayesian optimization. If you want to learn more about latent spaces and how to search them for high quality molecules, I wrote about that in more detail [here](noncomputable.github.io/evolution), where I developed a way to augment traditional search strategies with evolutionary algorithms.
+I’ve been thinking a lot about how to automatically synthesize graphs like molecules and social systems. Many successful approaches use neural networks to embed graphs into a continuous space, then search through it using anything from particle swarms to bayesian optimization. If you want to learn more about latent spaces and how to search them for high quality molecules, I wrote about that in more detail [here](/evolution), where I developed a way to augment traditional search strategies with evolutionary algorithms.
 
 But however good our search strategy is, the results we get will only be as good as the quality of the embeddings. If smoothly moving between two points in latent space doesn’t correspond to smoothly moving between the properties of two graphs, we’ll have a very hard time optimizing our objectives.
 
