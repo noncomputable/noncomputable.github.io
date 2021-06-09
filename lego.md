@@ -8,10 +8,12 @@ What Rationales does is this: it uses Monte Carlo tree search to chip away at ea
 These substructures are called _rationales_ and are meant to explain their respective properties when present in larger molecules.
 Against the backdrop of traditional generative models, this is beautiful. It’s trying to find the most fundamental structures in our chemical world that correspond to different high level properties.
 
-Now to generate a novel molecule that is soluble and drug-like, we take rationales for each property and overlap them at a common atom.
+Now to generate a novel molecule that is soluble and drug-like, we take rationales for each property and overlap them at common atoms.
 The resulting structure is a _multi-property rationale_.
 We then pass this multi-property rationale to a denoising autoencoder to “expand” it into a full molecule.
 This is by far the most elegant, interpretable method in drug discovery and is still SOTA. But it’s very different from standard models, so it’s very rare in practice.
+
+![rationales](images/rationales.png "rationales")
 
 I was thinking how I typically have as little understanding of how molecules achieve their tasks, like inhibiting proteins, as I have about how neural networks achieve their tasks, like generating jokes. Rationales was a nice break from that fog. It made it easier to interpret what was going on—both in the molecule itself and in the neural network.
 
@@ -35,4 +37,4 @@ To extract rationales from large neural networks, we may need a more clever stra
 
 Once we have a library of neural rationales, it’s time to put them together. Unlike molecular rationales, we can’t just overlap them at a common node. Instead, we need an algorithm that can take a set of subgraphs and weave them together into a coherent whole graph. The construction step of molecular Rationales has two parts: (1) overlap the rationales to form a multi-property rationale (2) pass them through a VAE to expand them into a molecule. For neural rationales, we should instead pass the set of single-property rationales through a subgraphs-to-graph translation system to “expand” them into a whole neural network.
 
-If this works, we will have an interpretable procedure for constructing small, task-specific neural networks. Instead of needing to train small neural networks on curated datasets and worrying about their generalization and interpretability, we could instead weave together meaningful building blocks from large, generally intelligent models. Is this actually possible? I have no idea.
+If this works, we will have an interpretable procedure for constructing small, task-specific neural networks. Instead of needing to train small neural networks on curated datasets and worrying about their generalization and interpretability, we could instead weave together meaningful building blocks from large, generally intelligent models. Is this actually possible? I have no idea. I would love to work with the people who do, though, and develop the ability and experience to find out.
