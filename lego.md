@@ -1,4 +1,4 @@
-### Lego Intelligence: Constructing Neural Networks Instead of Learning Them
+### Lego Intelligence: Assembling Neural Networks From Interpretable Building Blocks
 
 In AI for drug discovery, there is a beautiful but underappreciated method called [Rationales](https://arxiv.org/abs/2002.03244).
 Say we want to generate novel molecules that have certain properties like drug-likeness and solubility.
