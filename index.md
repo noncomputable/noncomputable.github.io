@@ -2,9 +2,11 @@
 ---
 ### Hi there!
 
-I'm Andrew, and I'm into computational social science.
+I'm Andrew, and I'm into computational drug discovery and social science.
 
-I want a robust understanding of how social systems _work_ and how they can be _improved_.  
+I want accelerate the rate at which we discover new treatments for big diseases.
+
+I want a robust understanding of how social systems _work_ and how they can be _improved_.
 
 I try to augment my ability to do both of these things with machines that can do the computation better than I can.
 
