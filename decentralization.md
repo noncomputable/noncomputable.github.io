@@ -1,4 +1,4 @@
-### Centralization and Scientific Progress: <br/>A Review of Recent Evidence
+### Centralization and Scientific Progress
 
 The more social, cultural, and financial capital flows into a scientific institution’s coffers, the better off its stakeholders are. That tends to happen when an institution has community solidarity, a single unifying brand accessible to all its members, and is tied down to a legally fixed organization. All these features are defined by centralization, all of them let stakeholders reap more from their institution’s success, and all of them can improve scientific progress. This applies from a single lab to an international community, from a single journal to an entire association of publishers.
 

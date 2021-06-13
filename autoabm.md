@@ -23,7 +23,4 @@ The future of ABM is a partnership between automatic optimizers and faulty human
 I expect this feedback loop between automatic optimization and human intuition to thoroughly blast away the obstacles that have been in the way of ABM so far.
 To be sure, this is a research problem, not a hack.
 There are lots of ways to synthesize ABMs, the most common one being evolutionary programming.
-The real way forward is probably very different and may involve neural embeddings of ABMs and a dose of metalearning, an idea which I'll sketch a little below. I’ve been distracted by personal matters, but I strongly encourage anyone in this area to pursue this problem if they truly want to move ABM from a rebranding of MAS into a genuine boon for industry and society.
-
-
-![notes](images/autoabm.png "hi")
+The real way forward is probably very different and may involve neural embeddings of ABMs and a dose of metalearning, an idea which I sketch a little [here](images/autoabm.png). I’ve been distracted by personal matters, but I strongly encourage anyone in this area to pursue this problem if they truly want to move ABM from a rebranding of MAS into a genuine boon for industry and society.
