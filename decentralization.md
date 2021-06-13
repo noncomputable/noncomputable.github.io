@@ -1,13 +1,11 @@
 ### Centralization and Scientific Progress
 
-The more social, cultural, and financial capital flows into a scientific institution’s coffers, the better off its stakeholders are. That tends to happen when an institution has community solidarity, a single unifying brand accessible to all its members, and is tied down to a legally fixed organization. All these features are defined by centralization, all of them let stakeholders get more out of their institution’s success, and all of them can improve scientific progress. This stretches from a single lab to an international community of labs and from a single journal to an entire association of publishers.
+The more social, cultural, and financial capital flows into a scientific institution’s coffers, the better off its stakeholders are. An institution is centralized, for example, when it has community solidarity, a single unifying brand accessible to 
+all its members, and is tied down to a legally fixed organization. 
+All these features let stakeholders get more out of their institution’s success and 
+all of them can improve scientific progress. This stretches from single labs all the way to international institutes.
 
-Increasing community solidarity can make it easier for members to cooperate personally and professionally, making them more productive.
-Having a single unified brand can increase productivity by letting members use the cultural capital gained from _everyone_’s work to get support for _anyone_’s work. A legally grounded organization improves productivity by letting members form enforceable contracts with the institution and work with the relative expectation of safety and stability.
-
-But the effects aren’t one-sided. Increasing community solidarity can lead to insularity and chauvinism towards the outputs of other institutions and 
-a tendency for nepotism instead of meritocracy. A single unified brand can command greater respect and lower scrutiny for all its members, 
-so free riders can easily get by with low-quality outputs. Fixing a legal organization often gives a tight chain of command excessive influence over which people and projects can be part of it, biasing its outputs.
+But the effects aren't one-sided. More solidarity makes it easier for members to work together, but can also lead to insularity and chauvinism. A unified brand lets members use the cultural capital gained from _everyone_’s work to get support for _anyone_’s work, but can let free riders benefit from its reputation even with low quality work. A legal foundation gives members safety and security by letting them form enforceable contracts with the institution, but often gives a tight chain of command excessive influence over which people and projects can be part of it.
 
 Beyond a certain point, centralization starts getting in the way of scientific progress. But at what point does it start getting in the way 
 of a stakeholder’s access to capital? That point may be much, much further down the line. Solidarity can slip into chauvinism and start 
@@ -35,11 +33,3 @@ Yet another example is described in [Does Science Advance One Funeral at a Time?
 Overall, these results suggest that the optimal degree of centralization might look less like a walled city with a few big institutions in the center or a clubhouse where everyone is chummy, and more like a diverse, sparsely connected tapestry of cliques, and that it might be a good idea to add in some random noise past the filter of the elite members of a field.
 
 Maybe some new evidence will undermine the entire impression I got from these results. All I can do is wring my hands at these massive machines of meat and money and hope they move science forward fast enough to flatten the risks that loom ahead.
-
-### References
-
-1. Zollman. “The Epistemic Benefit of Transient Diversity” 2010.
-2. Wagner et al. “Agent-Based Models of Dual-Use Research Restrictions” 2019.
-3. Danchev et al. “Meta-Research: Centralized scientific communities are less likely to generate replicable results” 2019.
-4. Foster et al. “Tradition and Innovation in Scientists’ Research Strategies” 2016.
-5. Azoulay et al. “Does Science Advance One Funeral at a Time?” 2019.
