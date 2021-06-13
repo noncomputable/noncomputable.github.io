@@ -11,7 +11,7 @@ Beyond a certain point, centralization starts getting in the way of scientific p
 of a stakeholder’s access to capital? That point may be much, much further down the line. Solidarity can slip into chauvinism and start 
 hampering scientific progress long before it starts affecting access to capital enough for stakeholders to care. So it’s important to know 
 exactly _where_ the point is that centralization turns sour so we can stop ourselves from slipping past it. Yet there are so many moving 
-parts, it’s hard to answer with a thought experiment. Luckly, researchers have turned their microscopes and statascripts inwards to suggest some answers.
+parts, it’s hard to answer with a thought experiment. Luckily, researchers have turned their microscopes and statascripts inwards to suggest some answers.
 
 In [Agent-Based Models of Dual-Use Research Restrictions](https://philpapers.org/rec/WAGAMO), Elliot Wagner and Jonathan Herrington argue that when a group of labs work on the same problem, greater connectivity between them can actually be an obstacle to scientific progress. They model a community of research labs as a network of bayesian bandits exploring two competing scientific theories and simulate their behavior. They measure the effect of varying the connectivity in a network of labs, starting with one where all labs communicate with each other, all the way down to a network of isolated labs studying the same question simultaneously. They find that decentralizing the community by cutting off 
 communication actually improves the chances that the truth gets discovered and doesn’t affect how fast it happens. That is, it’s good for scientific progress.
