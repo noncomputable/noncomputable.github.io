@@ -18,8 +18,7 @@ I broadly agree with the principles of [Effective Altruism](https://en.wikipedia
 
 I like [Scott Walker](https://www.youtube.com/watch?v=DRPXfsCBvVU), [Marty Robbins](https://www.youtube.com/watch?v=6x6o_tBU8DU), and [Leonard Cohen](https://www.youtube.com/watch?v=yOnXe8ttmjY).
 
-If you wanna talk, say hello at:  
-[_the first three letters of my name_]computable on Gmail.
+If you wanna talk, say hello at andcomputable on gmail.
 
 [GitHub](https://github.com/noncomputable)  
 [Twitter](https://twitter.com/chocolateycrepe)
