@@ -2,15 +2,15 @@
 ---
 ### Hi there!
 
-I'm Andrew, and I'm into computational drug discovery and social science.
+I'm Andrew, and I'm into computational [drug discovery](/evolution) and [social science](https://www.darpa.mil/program/ground-truth).
 
 I want accelerate the rate at which we discover new treatments for big diseases.
 
-I want a robust understanding of how social systems _work_ and how they can be _improved_.
+I [want](/autoabm) a robust understanding of how social systems _work_ and how they can be _improved_.
 
 I try to augment my ability to do both of these things with machines that can do the computation better than I can.
 
-I'm interested in how we can evaluate our own institutions---scientific, economic, and political---and how we might be able to design better ones.
+I'm interested in how we can evaluate our own institutions---scientific, economic, and political---and how we might be able to design [better ones](/decentralization).
 
 I'm best known for creating [AgentMaps](https://github.com/noncomputable/AgentMaps), a popular framework for agent-based simulations.
 
