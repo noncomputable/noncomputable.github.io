@@ -4,7 +4,7 @@
 
 I'm Andrew, and I'm into computational [drug discovery](/evolution) and [social science](https://www.darpa.mil/program/ground-truth).
 
-I want accelerate the rate at which we discover new treatments for big diseases.
+I want to accelerate the rate at which we discover new treatments for big diseases.
 
 I [want](/autoabm) a robust understanding of how social systems _work_ and how they can be _improved_.
 
