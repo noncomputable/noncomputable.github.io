@@ -1,4 +1,4 @@
 name: noncomputable.github.io
 markdown: kramdown
-theme: jekyll-whiteglass
+remote_theme: jekyll-whiteglass
 title: "Andrew's Site"
